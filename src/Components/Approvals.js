@@ -10,7 +10,7 @@ export default function Approvals() {
     result = await result.json();
     setData(result)
 
-  })
+  },[])
   console.log("result", data);
   return (
     <div>
@@ -18,7 +18,35 @@ export default function Approvals() {
       <Container>
         <div>
           <Row>
-            <Col>
+            
+              <Col className='col-md-3 col-6 shadow p-3 mb-5 bg-info rounded' style={{color:"white"}}>
+                <center>
+                <h3>Total Requests</h3>
+                <h2>{data.length}</h2>
+                </center>
+              </Col>
+              <Col className='col-md-3 col-6 shadow p-3 mb-5 bg-success rounded' style={{color:"white"}}>
+                <center>
+                <h3>Total Accepted</h3>
+                <h2>20</h2>
+                </center>
+              </Col>
+              <Col className='col-md-3 col-6 shadow p-3 mb-5 bg-danger rounded' style={{color:"white"}}>
+                <center>
+                <h3>Total Rejected</h3>
+                <h2>20</h2>
+                </center>
+              </Col>
+              <Col className='col-md-3 col-6 shadow p-3 mb-5 bg-secondary rounded' style={{color:"white"}}>
+                <center>
+                <h3>Total Pending</h3>
+                <h2>20</h2>
+                </center>
+              </Col>
+            
+          </Row>
+          <Row>
+            <Col className='shadow p-3 mb-5 bg-white rounded m-2'>
               <h3>Approvals</h3>
               <p>
                 <ul>
@@ -28,7 +56,7 @@ export default function Approvals() {
                 </ul>
               </p>
             </Col>
-            <Col>
+            <Col className='shadow p-3 mb-5 bg-white rounded m-2'>
               <h4>Options</h4>
               <ul>
                 <li><Badge bg="success">Accept</Badge> - Make status of user as Accepted</li>
@@ -37,8 +65,10 @@ export default function Approvals() {
               </ul>
             </Col>
           </Row>
+          
+          <div className='shadow-lg p-3 mb-5 bg-white rounded m-2 p-2'>
           <center><h3 className='m-3'>Complete Requested Members</h3></center>
-          <Table responsive="lg">
+          <Table responsive="lg" >
             <thead>
               <tr>
                 <th>ID</th>
@@ -67,6 +97,7 @@ export default function Approvals() {
               }
             </tbody>
           </Table>
+          </div>
         </div>
       </Container>
     </div>
